@@ -22,7 +22,7 @@
         android:layout_width="144dp"
         android:layout_height="40dp"
         android:text="Выход"
-        android:onClick="onClick"
+        android:onClick="onExit"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.789"
@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Заказы"
+        android:onClick="onOrderList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -72,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 
     <ListView
-        android:id="@+id/ivents"
+        android:id="@+id/events"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"

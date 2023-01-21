@@ -8,7 +8,7 @@
 <!--    во всех вьюхах было написано еще        android:layout_marginLeft="16dp"-->
 
     <TextView
-        android:id="@+id/name_of_ivent"
+        android:id="@+id/name_of_event"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -17,12 +17,12 @@
         android:text="Событие"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/date_of_ivent"
+        app:layout_constraintRight_toLeftOf="@+id/date_of_event"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/date_of_ivent"
+        android:id="@+id/date_of_event"
         android:layout_marginRight="16dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         android:textSize="20sp"
         android:paddingTop="7dp"
         android:paddingBottom="7dp"
-        app:layout_constraintLeft_toRightOf="@+id/name_of_ivent"
-        app:layout_constraintBottom_toBottomOf="@+id/name_of_ivent" />
+        app:layout_constraintLeft_toRightOf="@+id/name_of_event"
+        app:layout_constraintBottom_toBottomOf="@+id/name_of_event" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
