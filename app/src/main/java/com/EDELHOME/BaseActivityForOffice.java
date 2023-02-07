@@ -6,10 +6,11 @@ import java.time.LocalDate;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.ListView;
 import java.util.ArrayList;
-
+import android.widget.AdapterView.OnItemClickListener;
 import android.os.Bundle;
 
 public class BaseActivityForOffice extends AppCompatActivity
@@ -49,7 +50,15 @@ public class BaseActivityForOffice extends AppCompatActivity
         // устанавливаем для списка адаптер
         eventsList.setAdapter(eventArrayAdapter);
 
+        eventsList.setOnItemClickListener(new OnItemClickListener() {
 
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id)
+            {
+                // TODO Auto-generated method stub
+                onEvent(position);
+            }
+        });
     }
 
     public void onExit(View view)
@@ -59,13 +68,29 @@ public class BaseActivityForOffice extends AppCompatActivity
     }
     private void setInitialData()
     {
-        events.add(new Event(name_of_events[0], date_of_events[0], R.drawable.test));
-        events.add(new Event(name_of_events[1], date_of_events[1], R.drawable.test1));
-        events.add(new Event(name_of_events[2], date_of_events[2], R.drawable.test));
+        events.add(new Event(name_of_events[0], date_of_events[0], R.drawable.test, null, null, null));
+        events.add(new Event(name_of_events[1], date_of_events[1], R.drawable.test1, null, null, null));
+        events.add(new Event(name_of_events[2], date_of_events[2], R.drawable.test, null, null, null));
     }
     public void onOrderList(View view)
     {
         Intent intent = new Intent(this, EventListForOfficeActivity.class);
+        startActivity(intent);
+    }
+    public void onCalendar(View view)
+    {
+        Intent intent = new Intent(this, CalendarForOfficeActivity.class);
+        startActivity(intent);
+    }
+    public void onWorkers(View view)
+    {
+        Intent intent = new Intent(this, WorkerListForOfficeActivity.class);
+        startActivity(intent);
+    }
+    public void onEvent(int position)
+    {
+        Intent intent = new Intent(this, EventPageForOfficeActivity.class);
+        intent.putExtra(Event.class.getSimpleName(), events.get(position));
         startActivity(intent);
     }
 }

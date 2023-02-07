@@ -10,26 +10,25 @@ import android.widget.TextView;
 
 import java.util.List;
 
-
-public class EventGridAdapter extends BaseAdapter
+public class WorkerGridAdapter  extends BaseAdapter
 {
     private Context mContext;
-    private List<Event> events;
+    private List<Worker> workers;
 
-    public EventGridAdapter(Context context, List<Event> events)
+    public WorkerGridAdapter(Context context, List<Worker> worker)
     {
         this.mContext = context;
-        this.events = events;
+        this.workers = worker;
     }
 
     @Override
     public int getCount() {
-        return events.size();
+        return workers.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return events.get(position);
+        return workers.get(position);
     }
 
     @Override
@@ -44,18 +43,18 @@ public class EventGridAdapter extends BaseAdapter
         if (convertView == null) {
             grid = new View(mContext);
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
-            grid = inflater.inflate(R.layout.grid_event, parent, false);
+            grid = inflater.inflate(R.layout.grid_worker, parent, false);
         } else {
             grid = (View) convertView;
         }
-        ImageView image_of_eventView = (ImageView) grid.findViewById(R.id.image_of_event);
-        TextView name_of_eventView = grid.findViewById(R.id.name_of_event);
-        TextView date_of_eventView = grid.findViewById(R.id.date_of_event);
-        Event event = events.get(position);
+        ImageView imageView = (ImageView) grid.findViewById(R.id.imageView);
+        ImageView quadView = (ImageView) grid.findViewById(R.id.imageView1);
+        TextView nameView = grid.findViewById(R.id.name);
+        Worker worker = workers.get(position);
 
-        image_of_eventView.setImageResource(event.getImages_of_event().get(0));
-        name_of_eventView.setText(event.getName_of_event());
-        date_of_eventView.setText(event.getDate_of_eventInString());
+        imageView.setImageResource(worker.getImage());
+        quadView.setImageResource(R.drawable.quad_green);
+        nameView.setText(worker.getName());
 
         return grid;
     }

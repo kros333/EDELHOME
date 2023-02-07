@@ -24,16 +24,16 @@ public class LoginActivity extends AppCompatActivity {
         String login = loginText.getText().toString();
         if(login.equals("Соня") || login.equals("Кирилл") || login.equals("Влад") || login.equals("Егор") || login.equals("Саня") || login.equals("Ваня"))
         {
-            Intent intent = new Intent(this, BaseActivityForOffice.class);
-            intent.putExtra("login", login);
-            startActivity(intent);
-        }
-        else
-        {
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Неправильный логин/пароль", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
             toast.show();
+        }
+        else
+        {
+            Intent intent = new Intent(this, BaseActivityForOffice.class);
+            intent.putExtra("login", login);
+            startActivity(intent);
         }
     }
 }

@@ -2,14 +2,17 @@ package com.EDELHOME;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.Spinner;
+import android.widget.AdapterView.OnItemClickListener;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class EventListForOfficeActivity extends AppCompatActivity
@@ -40,10 +43,19 @@ public class EventListForOfficeActivity extends AppCompatActivity
 
         setInitialData();
         // получаем элемент GridView
-        GridView eventsList = findViewById(R.id.gridView);
+        final GridView eventsList = findViewById(R.id.gridView);
         // создаем адаптер
-        eventsList.setAdapter(new EventGridAdapter(this, events));
+        EventGridAdapter eventGridAdapter = new EventGridAdapter(this, events);
+        eventsList.setAdapter(eventGridAdapter);
+        eventsList.setOnItemClickListener(new OnItemClickListener() {
 
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id)
+            {
+                // TODO Auto-generated method stub
+                onEvent(position);
+            }
+        });
 
 
         AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener()
@@ -68,10 +80,32 @@ public class EventListForOfficeActivity extends AppCompatActivity
     {
         for(int i=0; i<10; i++)
         {
-            events.add(new Event(name_of_events[0], date_of_events[0], R.drawable.test));
-            events.add(new Event(name_of_events[1], date_of_events[1], R.drawable.test1));
-            events.add(new Event(name_of_events[2], date_of_events[2], R.drawable.test));
+            events.add(new Event(name_of_events[0], date_of_events[0], R.drawable.test, null, null, null));
+            events.add(new Event(name_of_events[1], date_of_events[1], R.drawable.test1, null, null, null));
+            events.add(new Event(name_of_events[2], date_of_events[2], R.drawable.test, null, null, null));
         }
+        for(int i=0; i<30; i = i + 5)
+        {
+            events.set(i, new Event(events.get(i).getName_of_event(), events.get(i).getDate_of_event(), 0, LocalTime.of(14, 00), LocalTime.of(16,00), null));
 
+        }
+        for(int i=0; i<30; i = i + 3)
+        {
+            events.set(i, new Event(events.get(i).getName_of_event(), events.get(i).getDate_of_event(), events.get(i).getImages_of_event().get(0), LocalTime.of(14, 00), LocalTime.of(16,00), null));
+
+        }
+        Event TEST = new Event(name_of_events[2], date_of_events[2], R.drawable.test, null, null, null);
+        TEST.setImages_of_event(R.drawable.test1);
+        TEST.setImages_of_event(R.drawable.quad_green);
+        TEST.setImages_of_event(R.drawable.test_worker1);
+
+
+        events.set(2, TEST);
+    }
+    public void onEvent(int position)
+    {
+        Intent intent = new Intent(this, EventPageForOfficeActivity.class);
+        intent.putExtra(Event.class.getSimpleName(), events.get(position));
+        startActivity(intent);
     }
 }

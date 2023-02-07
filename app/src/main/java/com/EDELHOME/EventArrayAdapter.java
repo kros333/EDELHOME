@@ -33,7 +33,7 @@ public class EventArrayAdapter extends ArrayAdapter<Event>
         Event event = events.get(position);
 
         name_of_eventView.setText(event.getName_of_event());
-        date_of_eventView.setText(event.getDate_of_eventString());
+        date_of_eventView.setText(event.getDate_of_eventInString());
 
         return view;
     }
