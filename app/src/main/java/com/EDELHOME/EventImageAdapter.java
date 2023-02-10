@@ -23,8 +23,14 @@ public class EventImageAdapter extends PagerAdapter
         this.mImages = images;
     }
     @Override
-    public int getCount() {
-        return mImages.size();
+    public int getCount()
+    {
+        if (mImages != null)
+            return mImages.size();
+        else
+        {
+            return 1;
+        }
     }
 
     @Override
@@ -42,8 +48,10 @@ public class EventImageAdapter extends PagerAdapter
                 false);
 
         eventImageView = itemView.findViewById(R.id.eventImageView);
-        eventImageView.setImageResource(mImages.get(position));
-
+        if (mImages != null)
+            eventImageView.setImageResource(mImages.get(position));
+        else
+            eventImageView.setImageResource(R.drawable.event_no_photo);
         container.addView(itemView);
 
         return itemView;

@@ -8,15 +8,15 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
+import java.util.ArrayList;
 
 
 public class EventGridAdapter extends BaseAdapter
 {
     private Context mContext;
-    private List<Event> events;
+    private ArrayList<Event> events;
 
-    public EventGridAdapter(Context context, List<Event> events)
+    public EventGridAdapter(Context context, ArrayList<Event> events)
     {
         this.mContext = context;
         this.events = events;
@@ -52,8 +52,13 @@ public class EventGridAdapter extends BaseAdapter
         TextView name_of_eventView = grid.findViewById(R.id.name_of_event);
         TextView date_of_eventView = grid.findViewById(R.id.date_of_event);
         Event event = events.get(position);
+        if(event.getImages_of_event() != null)
+        {
+            image_of_eventView.setImageResource(event.getImages_of_event().get(0));
 
-        image_of_eventView.setImageResource(event.getImages_of_event().get(0));
+        }
+        else
+            image_of_eventView.setImageResource(R.drawable.event_no_photo);
         name_of_eventView.setText(event.getName_of_event());
         date_of_eventView.setText(event.getDate_of_eventInString());
 

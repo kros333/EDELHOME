@@ -19,14 +19,14 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
         android:alpha="0.7"
+        android:textSize="18sp"
 
         />
 
     <ImageButton
         android:id="@+id/left"
-        android:layout_width="45dp"
+        android:layout_width="50dp"
         android:layout_height="0dp"
-        android:layout_marginLeft="2dp"
         app:layout_constraintBottom_toBottomOf="@+id/viewpager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/viewpager"
@@ -40,9 +40,8 @@
 
     <ImageButton
         android:id="@+id/right"
-        android:layout_width="45dp"
+        android:layout_width="50dp"
         android:layout_height="0dp"
-        android:layout_marginRight="2dp"
         android:background="@null"
         android:rotation="180"
         android:scaleType="fitCenter"
@@ -58,16 +57,109 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="322dp"
+        android:layout_height="318dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-
-
     </androidx.viewpager.widget.ViewPager>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewpager"
+        android:id="@+id/cl">
 
+        <ImageButton
+            android:id="@+id/add_photo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#A1A1A1"
+            android:onClick="onAddPhoto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/add_image" />
+
+        <TextView
+            android:id="@+id/name_of_event"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Название события, может быть довольно длинным, даже на 2 строчки"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/add_photo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name_of_client"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Дутышев Николай Александрович"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_of_event" />
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:autoLink="phone"
+            android:background="@android:color/transparent"
+            android:linksClickable="true"
+            android:onClick="onNumber"
+            android:text="89850546936"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_of_client" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#A1A1A1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_photo"
+            app:srcCompat="@drawable/add_changes" />
+
+        <ImageButton
+            android:id="@+id/copy_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:onClick="onCopyPhone"
+            app:layout_constraintBottom_toBottomOf="@+id/phone"
+            app:layout_constraintStart_toEndOf="@+id/phone"
+            app:layout_constraintTop_toTopOf="@+id/phone"
+            app:srcCompat="@drawable/copy" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Улица постышева, дом 2, кв. 33"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@+id/copy_address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl" />
+
+    <ImageButton
+        android:id="@+id/copy_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onCopyAddress"
+        app:layout_constraintBottom_toBottomOf="@+id/address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/address"
+        app:srcCompat="@drawable/copy" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
