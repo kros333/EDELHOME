@@ -48,10 +48,14 @@ public class EventPageForOfficeActivity extends AppCompatActivity {
             TextView name_of_client = findViewById(R.id.name_of_client);
             TextView phone = findViewById(R.id.phone);
             TextView address = findViewById(R.id.address);
+            TextView date = findViewById(R.id.date);
+            TextView time = findViewById(R.id.time);
             name_of_client.setText(event.getName_of_client());
             name_of_event.setText(event.getName_of_event());
             phone.setText(event.getPhone_number());
             address.setText(event.getAddress());
+            date.setText(event.getDate_of_eventInString());
+            time.setText(event.getTimeInString());
 
             viewPager = findViewById(R.id.viewpager);
             EventImageAdapter adapterForPosition = new EventImageAdapter(EventPageForOfficeActivity.this, event.getImages_of_event());
@@ -202,5 +206,11 @@ public class EventPageForOfficeActivity extends AppCompatActivity {
         FragmentManager manager = getSupportFragmentManager();
         AddImageDialogFragment myDialogFragment = new AddImageDialogFragment();
         myDialogFragment.show(manager, "myDialog");
+    }
+    public void onRedactor(View view)
+    {
+        Intent intent = new Intent(this, EventRedactorActivity.class);
+        intent.putExtra(Event.class.getSimpleName(), event);
+        startActivity(intent);
     }
 }

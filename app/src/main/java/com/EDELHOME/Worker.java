@@ -1,12 +1,15 @@
 package com.EDELHOME;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class Worker
+public class Worker implements Serializable
 {
     private String name;
+    private String phone;
     private int image;
+    private boolean admin;
 
     private ArrayList<LocalDate> startOfWork = new ArrayList<LocalDate>();
     private ArrayList<LocalDate> endOfWork = new ArrayList<LocalDate>();

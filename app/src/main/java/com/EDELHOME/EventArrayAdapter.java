@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class EventArrayAdapter extends ArrayAdapter<Event>
@@ -25,6 +26,7 @@ public class EventArrayAdapter extends ArrayAdapter<Event>
 
     public View getView(int position, View convertView, ViewGroup parent)
     {
+
         View view=inflater.inflate(this.layout, parent, false);
 
         TextView name_of_eventView = view.findViewById(R.id.name_of_event);
@@ -33,7 +35,12 @@ public class EventArrayAdapter extends ArrayAdapter<Event>
         Event event = events.get(position);
 
         name_of_eventView.setText(event.getName_of_event());
-        date_of_eventView.setText(event.getDate_of_eventInString());
+        if(event.getTimeInString() == "")
+        {
+            date_of_eventView.setText("——:——");
+        }
+        else
+            date_of_eventView.setText(event.getTimeInString());
 
         return view;
     }

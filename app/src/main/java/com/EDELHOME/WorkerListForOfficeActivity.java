@@ -27,13 +27,6 @@ import java.util.TimeZone;
 public class WorkerListForOfficeActivity extends AppCompatActivity {
 
 
-    String[] name_of_events = {"Замеры для установки шкафа", "Установка дверей", "Замена бракованной кухонной плитки"};
-    LocalDate[] date_of_events = {LocalDate.of(2017, 11, 30), LocalDate.of(2017, 8, 31), LocalDate.of(2018, 1, 2)};
-    // Ivents[] ivents = {new Ivents(name_of_ivents[0], date_of_ivents[0]), new Ivents(name_of_ivents[1], date_of_ivents[1]), new Ivents(name_of_ivents[2], date_of_ivents[2]) } ;
-    ArrayList<Event> events = new ArrayList<Event>();
-    //ListView iventsList;
-
-
     TextView currentDate;
     Calendar dateAndTime = Calendar.getInstance();
     LocalDate localDate = LocalDateTime.ofInstant(dateAndTime.toInstant(), dateAndTime.getTimeZone().toZoneId()).toLocalDate();
@@ -42,8 +35,11 @@ public class WorkerListForOfficeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_worker_list_for_office);
-        //setWorkerAndEventData();
-        createWorkerArrayList();
+        Bundle arguments = getIntent().getExtras();
+        if(arguments!=null)
+        {
+            workerArrayList = (ArrayList<Worker>) arguments.getSerializable("WorkersExtra");
+        }
 
         currentDate = findViewById(R.id.textView3);
         setInitialDate();
@@ -90,44 +86,5 @@ public class WorkerListForOfficeActivity extends AppCompatActivity {
                 DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR
                         ));
     }
-    private void createWorkerArrayList()
-    {
-        for(int i=0; i<4; i++)
-        {
-            workerArrayList.add(new Worker("Станиславович Леонидович Вячеславович", R.drawable.test_worker));
-            workerArrayList.add(new Worker("Жена :з", R.drawable.test_worker2));
-            workerArrayList.add(new Worker("Жена Егора", R.drawable.test_worker1));
-            workerArrayList.add(new Worker("Георгианский календарь ШТО", R.drawable.test_worker3));
-            workerArrayList.add(new Worker("хз кто но пусть тоже будет шобы обидно не было", R.drawable.test1));
 
-
-        }
-
-    }
-//    private void setWorkerAndEventData()
-//    {
-//        for(int i=0; i<10; i++)
-//        {
-//            events.add(new Event(name_of_events[0], date_of_events[0], R.drawable.test, null, null, null));
-//            events.add(new Event(name_of_events[1], date_of_events[1], R.drawable.test1, null, null, null));
-//            events.add(new Event(name_of_events[2], date_of_events[2], R.drawable.test, null, null, null));
-//        }
-//        for(int i=0; i<30; i += 5)
-//        {
-//            int j = i;
-//            if (j>20)
-//                j -= 20;
-//            events.set(i, new Event(events.get(j).getName_of_event(), events.get(j).getDate_of_event(), 0, LocalTime.of(14, 00), LocalTime.of(16,00), workerArrayList.get(j)));
-//
-//        }
-//        for(int i=0; i<30; i = i + 3)
-//        {
-//            int j = i;
-//            if (j>20)
-//                j -= 20;
-//            events.set(i, new Event(events.get(j).getName_of_event(), events.get(j).getDate_of_event(), events.get(j).getImage_of_event(), LocalTime.of(11, 00), LocalTime.of(17,00), workerArrayList.get(j)));
-//
-//        }
-//
-//    }
 }

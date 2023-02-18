@@ -102,7 +102,7 @@
             android:layout_marginTop="5dp"
             android:text="Дутышев Николай Александрович"
             android:textSize="22sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+            app:layout_constraintEnd_toStartOf="@+id/Redactor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name_of_event" />
 
@@ -121,10 +121,11 @@
             app:layout_constraintTop_toBottomOf="@+id/name_of_client" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/Redactor"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:backgroundTint="#A1A1A1"
+            android:onClick="onRedactor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_photo"
             app:srcCompat="@drawable/add_changes" />
@@ -145,6 +146,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+
         android:text="Улица постышева, дом 2, кв. 33"
         android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/copy_address"
@@ -160,6 +163,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/address"
         app:srcCompat="@drawable/copy" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="12.06.23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="12:00 - 15:00"
+        app:layout_constraintStart_toEndOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
