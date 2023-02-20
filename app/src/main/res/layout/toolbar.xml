@@ -3,7 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#4b0082">
+    android:background="@color/EDELHOME"
+    android:theme="@style/ToolBarStyle"
+    >
 </androidx.appcompat.widget.Toolbar>
 
 <!--android:background="@android:style/ThemeOverlay.Material.Dark.ActionBar"/>-->

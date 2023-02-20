@@ -5,7 +5,7 @@
         android:orderInCategory="1"
         android:title="Настройки" />
     <item
-        android:id="@+id/Exit"
+        android:id="@+id/logout"
         android:orderInCategory="2"
         android:title="Выйти из аккаунта" />
 </menu>

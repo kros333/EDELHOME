@@ -1,12 +1,17 @@
 package com.EDELHOME;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -31,10 +36,14 @@ public class EventRedactorActivity extends AppCompatActivity {
     Calendar dateAndTime = Calendar.getInstance();
     LocalDate localDate = LocalDateTime.ofInstant(dateAndTime.toInstant(), dateAndTime.getTimeZone().toZoneId()).toLocalDate();
     LocalTime localTime = LocalDateTime.ofInstant(dateAndTime.toInstant(), dateAndTime.getTimeZone().toZoneId()).toLocalTime();
+    private Toolbar mToolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_redactor);
+        mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
         EditText name_of_event = findViewById(R.id.name_of_event);
         EditText name_of_client = findViewById(R.id.name_of_client);
@@ -181,5 +190,4 @@ public class EventRedactorActivity extends AppCompatActivity {
             time2.setText(localTime.format(formatter));
         }
     }
-
 }

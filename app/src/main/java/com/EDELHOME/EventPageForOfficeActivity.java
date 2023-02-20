@@ -1,6 +1,7 @@
 package com.EDELHOME;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -12,14 +13,18 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Color;
 import android.net.Uri;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import java.io.File;
@@ -33,10 +38,13 @@ public class EventPageForOfficeActivity extends AppCompatActivity {
     int pos = 0;
     ViewPager viewPager;
     TextView count;
+    private Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_page_for_office);
+        mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
         Bundle arguments = getIntent().getExtras();
         count = findViewById(R.id.count);
 

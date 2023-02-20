@@ -7,8 +7,14 @@ import java.time.LocalDate;
 
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.ListView;
@@ -34,18 +40,19 @@ public class BaseActivityForOffice extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_for_office);
 
-        TextView textView = findViewById(R.id.textView);
+        //TextView textView = findViewById(R.id.textView);
         Bundle arguments = getIntent().getExtras();
 
         mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
-        if(arguments!=null)
-        {
-            String login = arguments.get("login").toString();
-            textView.setText(login);
-            textView.setTextSize(26);
-        }
+
+//        if(arguments!=null)
+//        {
+//            String login = arguments.get("login").toString();
+//            textView.setText(login);
+//            textView.setTextSize(26);
+//        }
 
         ArrayList<Event> today_events = new ArrayList<>();
         for (int i = 0; i < events.size(); i++)
@@ -94,11 +101,6 @@ public class BaseActivityForOffice extends AppCompatActivity
         });
     }
 
-    public void onExit(View view)
-    {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-    }
     public void onOrderList(View view)
     {
         Intent intent = new Intent(this, EventListForOfficeActivity.class);
@@ -186,5 +188,22 @@ public class BaseActivityForOffice extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.settings:
+                return true;
+            case R.id.logout:
+                // Запускаем вторую активность
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
 

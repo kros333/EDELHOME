@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".EventListForOfficeActivity">
 
-
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <GridView
         android:id="@+id/gridView"
@@ -21,16 +23,19 @@
         app:layout_constraintTop_toBottomOf="@+id/search_text"
 
         app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="206dp" />
+        tools:layout_editor_absoluteX="206dp" >
+
+
+    </GridView>
 
     <ImageView
         android:id="@+id/search"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_width="25dp"
         android:layout_height="25dp"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/search_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/search_text"
         app:srcCompat="@drawable/search" />
 
     <EditText
@@ -38,23 +43,33 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="8"
-        android:inputType="textPersonName"
         android:hint="Поиск"
-        app:layout_constraintBottom_toBottomOf="@+id/search"
-        app:layout_constraintEnd_toStartOf="@+id/sortButton"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/clear_text"
+        app:layout_constraintEnd_toStartOf="@+id/clear_text"
         app:layout_constraintStart_toEndOf="@+id/search"
-        app:layout_constraintTop_toTopOf="@+id/search" />
+        app:layout_constraintTop_toTopOf="@+id/clear_text" />
+
+    <ImageButton
+        android:id="@+id/clear_text"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sortButton"
+        app:layout_constraintEnd_toStartOf="@+id/sortButton"
+        app:layout_constraintTop_toTopOf="@+id/sortButton"
+        app:srcCompat="@drawable/clear" />
 
     <ImageButton
         android:id="@+id/sortButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/search_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sort_and_filter"
         android:onClick="onSortButton"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/gridView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:srcCompat="@drawable/sort_and_filter" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

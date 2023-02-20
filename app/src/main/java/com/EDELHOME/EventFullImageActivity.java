@@ -1,21 +1,29 @@
 package com.EDELHOME;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.github.chrisbanes.photoview.PhotoViewAttacher;
 
 public class EventFullImageActivity extends AppCompatActivity
 {
+    private Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.full_image_event);
 
+        mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
         // get intent data
         Intent intent = getIntent();
 
@@ -28,6 +36,7 @@ public class EventFullImageActivity extends AppCompatActivity
         pAttacher = new PhotoViewAttacher(imageView);
         pAttacher.update();
     }
+
 }
 
 

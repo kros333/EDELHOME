@@ -1,9 +1,14 @@
 package com.EDELHOME;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.Spinner;
@@ -31,10 +36,13 @@ public class WorkerListForOfficeActivity extends AppCompatActivity {
     Calendar dateAndTime = Calendar.getInstance();
     LocalDate localDate = LocalDateTime.ofInstant(dateAndTime.toInstant(), dateAndTime.getTimeZone().toZoneId()).toLocalDate();
     ArrayList<Worker> workerArrayList = new ArrayList<Worker>();
+    private Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_worker_list_for_office);
+        mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
         Bundle arguments = getIntent().getExtras();
         if(arguments!=null)
         {
@@ -86,5 +94,4 @@ public class WorkerListForOfficeActivity extends AppCompatActivity {
                 DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR
                         ));
     }
-
 }

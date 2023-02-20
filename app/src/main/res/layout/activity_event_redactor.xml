@@ -4,22 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EventRedactorActivity"
-    android:paddingLeft="5dp">
+    tools:context=".EventRedactorActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+
+    />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="5dp"
         android:text="Название"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <EditText
         android:id="@+id/name_of_event"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +34,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="12dp"
 
         android:text="Клиент"
@@ -39,6 +45,7 @@
         android:id="@+id/name_of_client"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:inputType="textPersonName"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +56,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="12dp"
 
         android:text="Номер телефона"
@@ -59,6 +67,7 @@
         android:id="@+id/phone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:inputType="phone"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,6 +78,7 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="12dp"
 
         android:text="Адрес"
@@ -79,6 +89,7 @@
         android:id="@+id/address"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,6 +99,7 @@
         android:id="@+id/setDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:onClick="onSetDate"
         android:text="Выбрать дату"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,6 +129,7 @@
     <Spinner
         android:id="@+id/filter"
         android:layout_width="wrap_content"
+        android:layout_marginLeft="5dp"
         android:layout_height="0dp"
         android:gravity="left"
         app:layout_constraintBottom_toBottomOf="@+id/setTime2"
@@ -136,6 +149,7 @@
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text="Отмена"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
