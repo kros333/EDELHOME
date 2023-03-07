@@ -193,12 +193,16 @@ public class BaseActivityForOffice extends AppCompatActivity
         int id = item.getItemId();
 
         switch (id) {
+            case R.id.create_user:
+                Intent intent = new Intent(this, CreateUserActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.settings:
                 return true;
             case R.id.logout:
                 // Запускаем вторую активность
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(this, LoginActivity.class);
+                startActivity(intent1);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

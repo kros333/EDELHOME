@@ -132,27 +132,34 @@ public class EventListForOfficeActivity extends AppCompatActivity implements Fil
     public void onEvent(int position)
     {
         Intent intent = new Intent(this, EventPageForOfficeActivity.class);
-        if (filter == 0)
-        {
-            if(s_f_events.size() != 0)
+//        if (filter == 0)
+//        {
+            if(s_f_events.size() != 0 || s_s_f_events.size() != 0)
             {
-                intent.putExtra(Event.class.getSimpleName(), s_f_events.get(position));
+                if(s_s_f_events.size() != 0)
+                {
+                    intent.putExtra(Event.class.getSimpleName(), s_s_f_events.get(position));
+                }
+                else
+                {
+                    intent.putExtra(Event.class.getSimpleName(), s_f_events.get(position));
+                }
             }
             else
             {
                 intent.putExtra(Event.class.getSimpleName(), events.get(position));
             }
-        }
-        else
-        {
-            for (int i = 0; i < events.size(); i++)
-            {
-                if (events.get(i).getId() == s_f_events.get(position).getId())
-                {
-                    intent.putExtra(Event.class.getSimpleName(), events.get(i));
-                }
-            }
-        }
+//        }
+//        else
+//        {
+//            for (int i = 0; i < events.size(); i++)
+//            {
+//                if (events.get(i).getId() == s_f_events.get(position).getId())
+//                {
+//                    intent.putExtra(Event.class.getSimpleName(), events.get(i));
+//                }
+//            }
+//        }
         startActivity(intent);
     }
     public void onSortButton(View v)

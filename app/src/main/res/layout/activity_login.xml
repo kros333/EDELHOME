@@ -9,33 +9,50 @@
 
     <EditText
         android:id="@+id/login"
-        android:layout_width="276dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:hint="Логин"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:inputType="numberPassword"
         android:id="@+id/password"
-        android:layout_width="276dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:hint="Пароль"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/button"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="288dp"
-        android:text="Вход"
         android:onClick="onClick"
+        android:text="Вход"
+        app:layout_constraintEnd_toEndOf="@+id/password"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Логин и пароль можно запросить у администратора"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
